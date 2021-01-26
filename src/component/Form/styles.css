@@ -5,16 +5,16 @@
     justify-content: center;
   }
   
-  .my-custom-class-form {
+.my-custom-class-form {
     display: flex;
     align-items: center;
   }
   
-  .my-custom-class-input {
+.my-custom-class-input {
     margin: 0.5rem 0;
   }
   
-  .bp3-input {
+.bp3-input {
     font-size: 20px;
     border: 1px solid gray;
     border-radius: 5px;
