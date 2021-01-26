@@ -1,0 +1,46 @@
+.container{
+    display: flex;
+    
+    margin: 8rem 360px 0 360px;
+    justify-content: center;
+  }
+  
+  .my-custom-class-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .my-custom-class-input {
+    margin: 0.5rem 0;
+  }
+  
+  .bp3-input {
+    font-size: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  
+  #number {
+    width: 300px;
+    padding: 8px;
+  }
+  
+  #name {
+    width: 300px;
+    padding: 8px;
+  }
+  
+  .exp-cvc-input {
+    display: flex;
+    justify-content: space-between;
+  }
+  #expiry {
+    width: 190px;
+    padding: 8px;
+  }
+  
+  #cvc {
+    width: 80px;
+    padding: 8px;
+  }
+  
