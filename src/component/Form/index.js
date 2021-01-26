@@ -52,7 +52,7 @@ export default class Form extends React.Component {
           <small>E.g.: 49..., 51..., 36..., 37...</small>
 
           <InputGroup
-            maxLength={300}
+            maxLength={100}
             type="text"
             id="name"
             name="name"
