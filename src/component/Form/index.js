@@ -1,92 +1,90 @@
-import React from "react";
-import { FormGroup, InputGroup , Classes } from "@blueprintjs/core";
+import React, { useEffect, useState } from "react";
+import { FormGroup, InputGroup } from "@blueprintjs/core";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-import "./styles.css";
+import "./styles.css"
 
-export default class Form extends React.Component {
-  state = {
+function Input() {
+  const [state, setState] = useState({
     cvc: "",
     expiry: "",
     focus: "",
     name: "",
     number: ""
+  });
+  console.log(state);
+  const handleInputFocus = (event) => {
+    setState({ ...state, focus: event.target.name });
   };
 
-  handleInputFocus = (event) => {
-    this.setState({ focus: event.target.name });
-  };
-
-  handleInputChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
 
-    this.setState({ [name]: value });
+    setState({ ...state, [name]: value });
   };
 
-  render() {
-    return (
-      <div className="container">
-        <Cards className="custom-card"
-          number={this.state.number}
-          name={this.state.name}
-          cvc={this.state.cvc}
-          expiry={this.state.expiry}
-          focused={this.state.focus}
+  return (
+    <div className="container">
+      <Cards
+        className="custom-card"
+        number={state.number}
+        name={state.name}
+        cvc={state.cvc}
+        expiry={state.expiry}
+        focused={state.focus}
+      />
+
+      <FormGroup labelFor="text-input" className="my-custom-class-form">
+        <InputGroup
+          maxLength={16}
+          type="tel"
+          id="number"
+          name="number"
+          placeholder="Card Number"
+          // disabled={true}
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
         />
 
-        <FormGroup 
-        labelFor="text-input"
-        className="my-custom-class-form"
-        >
+        <small>E.g.: 49..., 51..., 36..., 37...</small>
+
+        <InputGroup
+          maxLength={16}
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name"
+          className="my-custom-class-input"
+          onChange={handleInputChange}
+          onFocus={handleInputFocus}
+        />
+
+        <div class="exp-cvc-input">
           <InputGroup
-            maxLength={16}
+            maxLength={4}
             type="tel"
-            id="number"
-            name="number"
-            placeholder="Card Number"
-            // disabled={true}
-            onChange={this.handleInputChange}
-            onFocus={this.handleInputFocus}
+            id="expiry"
+            name="expiry"
+            placeholder="expiry"
+            className="my-custom-class-input"
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
           />
-
-          <small>E.g.: 49..., 51..., 36..., 37...</small>
 
           <InputGroup
-            maxLength={100}
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Name"
+            maxLength={3}
+            type="tel"
+            id="cvc"
+            name="cvc"
+            placeholder="cvc"
             className="my-custom-class-input"
-            onChange={this.handleInputChange}
-            onFocus={this.handleInputFocus}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
           />
-
-          <div class="exp-cvc-input">
-            <InputGroup
-              maxLength={4}
-              type="tel"
-              id="expiry"
-              name="expiry"
-              placeholder="expiry"
-              className="my-custom-class-input"
-              onChange={this.handleInputChange}
-              onFocus={this.handleInputFocus}
-            />
-
-            <InputGroup
-              maxLength={3}
-              type="tel"
-              id="cvc"
-              name="cvc"
-              placeholder="cvc"
-              className="my-custom-class-input"
-              onChange={this.handleInputChange}
-              onFocus={this.handleInputFocus}
-            />
-          </div>
-        </FormGroup>
-      </div>
-    );
-  }
+        </div>
+      </FormGroup>
+    </div>
+  );
 }
+
+export default Input;
