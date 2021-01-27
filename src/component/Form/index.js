@@ -49,7 +49,7 @@ function Input() {
         <small>E.g.: 49..., 51..., 36..., 37...</small>
 
         <InputGroup
-          maxLength={16}
+          maxLength={300}
           type="text"
           id="name"
           name="name"
