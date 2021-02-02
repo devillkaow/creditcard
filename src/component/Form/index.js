@@ -12,7 +12,7 @@ function Input() {
     name: "",
     number: ""
   });
-  console.log(state);
+  
   const handleInputFocus = (event) => {
     setState({ ...state, focus: event.target.name });
   };
